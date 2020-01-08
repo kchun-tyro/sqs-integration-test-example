@@ -21,7 +21,6 @@ import org.testcontainers.containers.localstack.LocalStackContainer.Service.SQS
 import org.testcontainers.junit.jupiter.Container
 import org.testcontainers.junit.jupiter.Testcontainers
 
-
 @SpringBootTest
 @ContextConfiguration(initializers = [SqsListenerIntegrationTest.SqsListenerIntegrationTestInitializer::class])
 @Testcontainers
