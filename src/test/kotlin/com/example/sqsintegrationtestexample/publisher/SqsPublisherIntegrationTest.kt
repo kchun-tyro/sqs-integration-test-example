@@ -3,7 +3,8 @@ package com.example.sqsintegrationtestexample.publisher
 import com.amazonaws.services.sqs.AmazonSQS
 import com.amazonaws.services.sqs.AmazonSQSAsync
 import com.amazonaws.services.sqs.AmazonSQSClientBuilder
-import org.junit.jupiter.api.Assertions
+import org.junit.jupiter.api.Assertions.assertEquals
+import org.junit.jupiter.api.Assertions.assertTrue
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
 import org.springframework.beans.factory.annotation.Autowired
@@ -47,8 +48,8 @@ class SqsPublisherIntegrationTest {
         // then
         val receiveMessageRequest = amazonSQS.receiveMessage(queueUrl)
         val messages = receiveMessageRequest.messages
-        Assertions.assertTrue(messages.isNotEmpty())
-        Assertions.assertEquals(payload, messages.first().body)
+        assertTrue(messages.isNotEmpty())
+        assertEquals(payload, messages.first().body)
     }
 
     internal class SqsListenerIntegrationTestInitializer : ApplicationContextInitializer<ConfigurableApplicationContext> {
